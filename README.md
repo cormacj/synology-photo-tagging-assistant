@@ -43,7 +43,7 @@ In the following steps, replace "your-username" with the username you use to log
 ### Configure your NAS
 * Login to your NAS command line: `ssh your-username@nas.address`, eg `ssh joeuser@192.0.0.5`
 
-* Create sudoers<br> `sudo su -` This will ask for a password. Enter your password. <br>`echo "your-username ALL=NOPASSWD: /bin/psql" >/etc/sudoers.d/your-username"`<br><br>If this worked, you'll have a file in /etc/sudoers.d this looks like this:<br>`root@nasserver:~# cat /etc/sudoers.d/joeuser`<br>`joeuser ALL=NOPASSWD: /bin/psql`
+* Create sudoers<br> `sudo su -` This will ask for a password. Enter your password. <br>`echo "your-username ALL=NOPASSWD: /bin/psql" >/etc/sudoers.d/your-username`<br><br>If this worked, you'll have a file in /etc/sudoers.d this looks like this:<br>`root@nasserver:~# cat /etc/sudoers.d/joeuser`<br>`joeuser ALL=NOPASSWD: /bin/psql`
 * Type `exit` twice to log out of ssh.
 
 ### Install and configure packages
