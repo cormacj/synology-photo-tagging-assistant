@@ -64,5 +64,5 @@ Further documentation: https://kb.synology.com/en-my/DSM/help/DSM/AdminCenter/sy
 * Click on "Create", then "Scheduled Task" and then "User Defined Script"
 * Keep the "General Settings", table at the default.
 * Click on "Schedule" and pick your refresh intervals. I have mine set as "Daily" and repeat every hour.
-* Click on "Task Settings" and in the user-defined script box enter:<br>`bash /path/to/your/script/make_photo_tag_pages.sh`<br> Remember to replace `/path/to/your/script` with your actual path to your script. For example, mine is at  `/volume1/homes/cormac/devel/`
+* Click on "Task Settings" and in the user-defined script box enter:<br>`bash /path/to/your/script/make_photo_tag_pages.sh`<br> Remember to replace `/path/to/your/script` with your actual path to your script.
 * Finally, make sure you update the `last run` time with something close to the end of the day otherwise it will just run once per day.
