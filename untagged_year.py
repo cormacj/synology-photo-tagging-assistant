@@ -51,13 +51,70 @@ html_head = """<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Untagged Photos by Date</title>
 <style>
-body { font-family: sans-serif; }
-details { margin-bottom: 1.2em; }
-summary { font-weight: bold; font-size: 1.1em; cursor: pointer; }
-ul { margin: 0.3em 0 0.7em 1.4em; }
-li { margin-bottom: 0.3em; }
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1em;
+    background: #fafbfc;
+    color: #222;
+    max-width: 700px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+}
+h1 {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+}
+details {
+    margin-bottom: 1.2em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    padding: 0.7em 1em;
+}
+summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 0.6em 0;
+    outline: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+summary:focus, summary:hover {
+    background: #f0f4f8;
+}
+ul {
+    margin: 0.3em 0 0.7em 1.4em;
+    padding-left: 1.2em;
+}
+li {
+    margin-bottom: 0.3em;
+    word-break: break-word;
+}
+@media (max-width: 600px) {
+    body {
+        font-size: 1.05em;
+        padding: 0.7em 0.3em;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    details {
+        padding: 0.5em 0.5em;
+    }
+    ul {
+        margin-left: 0.7em;
+        padding-left: 0.7em;
+    }
+    summary {
+        font-size: 1em;
+        padding: 0.8em 0.2em;
+    }
+}
 </style>
 </head>
 <body>

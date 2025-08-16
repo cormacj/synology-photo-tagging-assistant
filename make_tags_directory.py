@@ -31,27 +31,81 @@ def generate_html(data, output_filename):
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Photo Tag Links</title>
     <style>
-        body {{ font-family: sans-serif; margin: 2em; }}
-        #searchbox {{ padding: 0.5em; width: 300px; }}
-        ul {{ list-style: none; padding: 0; }}
-        li {{ margin: 0.3em 0; }}
-        a {{ text-decoration: none; color: #2a52be; }}
-        a:hover {{ text-decoration: underline; }}
+        body {{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 1em;
+            background: #fafbfc;
+            color: #222;
+            max-width: 700px;
+            /*margin-left: auto;
+            margin-right: auto;*/
+        }}
+        #searchbox {{
+            padding: 0.7em;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin-bottom: 1em;
+        }}
+        ul {{
+            list-style: none;
+            padding: 0;
+        }}
+        li {{
+            margin: 0.5em 0;
+        }}
+        a {{
+            text-decoration: none;
+            color: #2a52be;
+            font-size: 1.05em;
+            padding: 0.4em 0.8em;
+            border-radius: 6px;
+            transition: background 0.2s;
+            display: inline-block;
+        }}
+        a:hover, a:focus {{
+            text-decoration: underline;
+            background: #f0f4f8;
+        }}
+        h1 {{
+            font-size: 1.6em;
+        }}
+        h3 {{
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }}
+        @media (max-width: 600px) {{
+            body {{
+                font-size: 1.08em;
+                padding: 0.5em 0.3em;
+            }}
+            #searchbox {{
+                font-size: 1em;
+                width: 100%;
+                max-width: none;
+            }}
+            h1 {{
+                font-size: 1.2em;
+            }}
+        }}
     </style>
 </head>
 <body>
     <h1>Photo Tag Links</h1>
     Last run: {lastrun}
-    <h3><a href="untagged_photos.html">Click Here for Untagged Photos</a></h3
-<br>
-<br>
-Enter part of a tag to search for something.
-<p/ >
+    <h3><a href="untagged_photos.html">Click Here for Untagged Photos</a></h3>
+    <br>
+    <br>
+    <label for="searchbox">Enter part of a tag to search for something.</label>
     <input type="text" id="searchbox" placeholder="Search tags..." onkeyup="filterList()">
     <ul id="taglist">
 """
+
     # Now, covert the database output into links.
     for number, name in data:
         url = f"https://{URL}/?launchApp=SYNO.Foto.AppInstance#/general_tag/shared_space/{escape(number)}"
