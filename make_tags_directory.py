@@ -106,6 +106,29 @@ def generate_html(data, output_filename):
     <ul id="taglist">
 """
 
+    # Now, covert the database output into links.
+    for number, name in data:
+        url = f"https://{URL}/?launchApp=SYNO.Foto.AppInstance#/general_tag/shared_space/{escape(number)}"
+        html += f'        <li><a href="{url}" target="_blank">{escape(name)}</a></li>\n'
+    #Finally, add the function to filter the list
+    html += """    </ul>
+    <script>
+        function filterList() {
+            var input = document.getElementById('searchbox');
+            var filter = input.value.toLowerCase();
+            var ul = document.getElementById("taglist");
+            var li = ul.getElementsByTagName('li');
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName("a")[0];
+                var txtValue = a.textContent || a.innerText;
+                li[i].style.display = txtValue.toLowerCase().includes(filter) ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
+"""
+
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write(html)
     #print(f"HTML page written to {output_filename}")
